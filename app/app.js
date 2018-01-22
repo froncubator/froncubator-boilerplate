@@ -43,28 +43,17 @@ app.get('*', (req, res) => {
     })
 })
 
-// exec('cd ./frontend && gulp', (error, stdout, stderr) => {
-//     if (error) {
-//         console.error(`exec error: ${error}`);
-//     return;
-//     }
+exec('cd ./frontend && gulp', (error, stdout, stderr) => {
+    if (error) {
+        console.error(`exec error: ${error}`);
+        return;
+    }
 
-//     console.log(`stdout: ${stdout}`);
+    console.log(`stdout: ${stdout}`);
 
-//     if (stderr) {
-//         console.log(`stderr: ${stderr}`);
-//     }
-// });
-
-// exec('cd ./frontend && bower install twbs/bootstrap', (error, stdout, stderr) => {
-//     if (error) {
-//         console.error(`exec error: ${error}`);
-//     return;
-//     }
-//     console.log(`stdout: ${stdout}`);
-//     if (stderr) {
-//         console.log(`stderr: ${stderr}`);
-//     }
-// }); 
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+    }
+});
 
 app.listen(process.env.PORT || 8080)
