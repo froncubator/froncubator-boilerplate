@@ -1,0 +1,12 @@
+FROM node:8.9.0
+
+RUN mkdir /src
+RUN mkdir /src/app
+WORKDIR /src
+COPY package.json /src
+RUN npm install
+RUN npm install -g nodemon
+RUN npm install -g pm2
+RUN npm install -g gulp@3.9.1
+WORKDIR /src/app
+CMD nodemon app.js --ignore 'frontend/*.*'

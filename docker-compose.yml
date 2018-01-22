@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    environment:
+      - LOCATION_HOST=127.0.0.1:3333
+      - LOCATION_MODE=local
+    build:
+      context: .
+      dockerfile: dockerfile_node
+    volumes:
+      - "./app:/src/app"
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfile_nginx
+    volumes:
+      - './nginx/logs:/var/log/nginx'
+      - './app/frontend:/frontend'
+    ports:
+      - "3333:80"
+      - "3334:8088"
+    links:
+      - web
