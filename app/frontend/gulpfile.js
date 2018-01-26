@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const less = require('gulp-less')
 const concat = require('gulp-concat')
 
-gulp.task('desktop_js', function() { 
+gulp.task('desktop_js', function() {
     gulp.src(['./scripts/app.js',
     './scripts/controllers/*.js',
     './scripts/directives/*.js',
@@ -42,8 +42,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', function() {
     gulp.start('desktop')
-})
-
-gulp.task('watch', function() {
-    gulp.start('watch')
 })
